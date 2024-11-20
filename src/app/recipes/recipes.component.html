@@ -1,0 +1,72 @@
+<app-header></app-header>
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="container">
+                <h4>Filter</h4>
+                <button class="btn mt-4">All</button> <br>
+                <!-- cuisine -->
+                <button class="btn dropdown-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    Cuisine Type
+                  </button> <br>
+                  <div class="collapse" id="collapseExample">
+                   <button class="btn">Italian</button>
+                   <button class="btn">Asian</button>
+                   <button class="btn">American</button>
+                   <button class="btn">Mexican</button>
+                   <button class="btn">Pakistani</button>
+                   <button class="btn">Japanese</button>
+                   <button class="btn">Thai</button>
+                   <button class="btn">Indian</button>
+                   <button class="btn">Turkish</button>
+                   <button class="btn">Smoothie</button>
+
+                  </div>
+
+
+                  <!-- meal type -->
+                  <button class="btn dropdown-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExamplemealType" aria-expanded="false" aria-controls="collapseExamplemealType">
+                    Meal Type
+                  </button>
+                  <div class="collapse" id="collapseExamplemealType">
+                   <button class="btn">Dinner</button>
+                   <button class="btn">Lunch</button>
+                   <button class="btn">Snack</button>
+                   <button class="btn">Dessert</button>
+                   <button class="btn">Appetizer</button>
+                   <button class="btn">Breakfast</button>
+                   <button class="btn">Beverage</button>
+                   <button class="btn">Salad</button>
+                  
+
+                  </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1>All Recipes</h1>
+                <input type="text" class="form-control w-50" placeholder="Search Recipe Here!">
+            </div>
+            <div class="row my-4">
+               
+               @if(allRecipes.length>0){
+                @for (item of allRecipes; track $index) {
+                  <div class="col-md-4 px-5">
+                    <div class="card border-0" style="width:100%;">
+                        <img [src]="item.image" class="card-img-top rounded" alt="..." height="200px" width="200px">
+                        <div class="card-body">
+                          <h5 class="card-title">{{item.name}}</h5>
+                            <p>cuisine : {{item.cuisine}}</p>
+                        </div>
+                      </div>
+                </div>
+                }
+               }
+               @else {
+                <h1>No Items...</h1>
+               }
+                
+            </div>
+        </div>
+    </div>
+</div>
