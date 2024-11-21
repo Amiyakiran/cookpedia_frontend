@@ -14,6 +14,10 @@ export class ApiService {
   getAllRecipesApi(){
    return this.http.get(`${this.serverUrl}/all-recipes`)
   }
+  //add testimony
+  addTestimonials(reqBody:any){
+    return this.http.post(`${this.serverUrl}/add-testimonal`, reqBody)
+  }
 
 
 }
