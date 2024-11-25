@@ -18,6 +18,14 @@ export class ApiService {
   addTestimonials(reqBody:any){
     return this.http.post(`${this.serverUrl}/add-testimonal`, reqBody)
   }
+  //register
+  registerApi(reqBody:any){
+    return this.http.post(`${this.serverUrl}/register-user`, reqBody)
+  }
+  //login
+  loginApi(reqBody:any){
+    return this.http.post(`${this.serverUrl}/login-user`, reqBody)
+  }
 
 
 }

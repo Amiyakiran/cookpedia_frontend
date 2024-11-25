@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { SavedRecipeComponent } from './saved-recipe/saved-recipe.component';
 import { ViewRecipeComponent } from './view-recipe/view-recipe.component';
+import { ProfileComponent } from './profile/profile.component';
 
 export const routes: Routes = [
     {path:'', component:HomeComponent},
@@ -16,6 +17,7 @@ export const routes: Routes = [
     {path:'login', component:LoginComponent},
     {path:'register', component:RegisterComponent},
     {path:'saved-recipes', component:SavedRecipeComponent},
-    {path:'recipes/:id/view', component:ViewRecipeComponent}
+    {path:'recipes/:id/view', component:ViewRecipeComponent},
+    {path:'profile', component:ProfileComponent}
     
 ];

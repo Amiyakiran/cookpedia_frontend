@@ -9,5 +9,13 @@ import { RouterLink } from '@angular/router';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  username: any = ""
+  ngOnInit() {
+    if (sessionStorage.getItem("token")) {
+      this.username = JSON.parse(sessionStorage.getItem("existingUser") || "").username
+      console.log(this.username);
 
+
+    }
+  }
 }
