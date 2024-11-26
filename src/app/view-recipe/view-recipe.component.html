@@ -1,1 +1,74 @@
-<p>view-recipe works!</p>
+
+<app-header></app-header>
+
+<div class="container my-5">
+    <div class="row mb-5">
+        <div class="col-md-6">
+            <a routerLink="/recipes">Back to all Recipes</a>
+
+            <br>
+            <img [src]="recipeDetails.image" class="img-fluid my-5" alt="no image">
+            <div class="d-flex justify-content-between">
+                <button (click)="generatepdf()" class="btn btn-success">Download Recipes</button>
+                <button class="btn btn-primary">Save Recipes</button>
+            </div>
+        </div>
+        <div class="col-md-6 px-4">
+            <h1>{{recipeDetails.name}}</h1>
+            <div class="d-flex justify-content-between my-5">
+                <p class="fw-bolder">Cuisine: {{recipeDetails.cuisine}} </p>
+                <p class="fw-bolder">Serving: {{recipeDetails.servings}}</p>
+                <p class="fw-bolder">Mode of Cooking: {{recipeDetails.difficulty}}</p>
+            </div>
+            <div class="d-flex justify-content-evenly my-5">
+               <div class="d-flex flex-column align-items-center">
+                <img src="https://img.freepik.com/premium-vector/wall-clock-logo-icon_414847-367.jpg" alt="no image" width="70px">
+                <p class="fw-bolder">Preparation Time: </p>
+                <h5><span class="text-danger">{{recipeDetails.prepTimeMinutes}} </span>minutes</h5>
+               </div>
+               <div class="d-flex flex-column align-items-center">
+                <img src="https://cdn.icon-icons.com/icons2/2622/PNG/512/food_cooking_icon_158561.png" alt="no image" width="70px">
+                <p class="fw-bolder">Cooking Time: </p>
+                <h5><span class="text-danger">{{recipeDetails.cookTimeMinutes}}</span> minutes</h5>
+               </div>
+               <div class="d-flex flex-column align-items-center">
+                <img src="https://icon-library.com/images/icon-cooking/icon-cooking-14.jpg" alt="no image" width="70px">
+                <p class="fw-bolder"> Calories per Serving: </p>
+                <h5><span class="text-danger"> {{recipeDetails.caloriesPerServing}} </span> minutes</h5>
+               </div>
+            </div>
+            <div class="my-3">
+                <h3>Ingredients Needed</h3>
+                <ol>
+                    @for (item of recipeDetails.ingredients; track $index) {
+                        <li>{{item}}</li>
+                    }
+                </ol>
+            </div>
+            <div class="my-3">
+                <h3>Cooking Instructions</h3>
+                <ol>
+                    @for (item of recipeDetails.instructions; track $index) {
+                        <li>{{item}}</li>
+                    }
+                    
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <div class="row my-5">
+        <h1>Related Recipes</h1>
+        @for (item of relatedRecipeDetails; track $index ) {
+            <div class="col-md-3" [hidden]="item._id == recipeDetails._id">
+                <div class="p-3">
+                    <img [src]="item.image" alt="no image" class="w-100">
+                    <div class="card-body mt-2">
+                        <h5 class="card-title">{{item.name}}</h5>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
