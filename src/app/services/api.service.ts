@@ -47,4 +47,17 @@ export class ApiService {
     return this.http.post(`${this.serverUrl}/recipes/${recipeId}/download`,recipeDetails,this.appendToken())
   }
 
+  //API TO SAVE the recipe
+  saveRecipeApi(recipeDetails:any){
+    return this.http.post(`${this.serverUrl}/save-recipe`,recipeDetails,this.appendToken())
+  }
+
+  //api to get saved recipe
+  getSaveRecipeApi(){
+    return this.http.get(`${this.serverUrl}/get-save-recipe`,this.appendToken())
+  }
+  //api to remove saved recipe-remove-savedrecipe/:id
+  removeSaveRecipeApi(id:any){
+    return this.http.delete(`${this.serverUrl}/remove-savedrecipe/${id}`,this.appendToken())
+  }
 }

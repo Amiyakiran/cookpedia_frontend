@@ -30,7 +30,7 @@
             @if(username){
               <li><a class="dropdown-item" routerLink="/profile">Profile</a></li>
               <li><a class="dropdown-item" routerLink="/saved-recipes">Your Collection</a></li>
-              <li><a class="dropdown-item" routerLink="/register">Logout</a></li>
+              <li><a (click)=" logout()" class="dropdown-item" routerLink="/register">Logout</a></li>
             }
             @else {
               <li><a class="dropdown-item" routerLink="/login">login</a></li>

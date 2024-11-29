@@ -72,6 +72,15 @@ export class ViewRecipeComponent implements OnInit {
       })
     }
   }
+  addDownloadRecipe(){
+    const recipeD={
+      name:this.recipeDetails.name ,
+      cuisine:this.recipeDetails.cuisine
+    }
+    this.api.downloadRecipeApi(this.recipeDetails._id,recipeD).subscribe((res:any)=>{
+      this.generatepdf()
+    })
+  }
 
   generatepdf(){
     const pdf = new jsPDF()
@@ -99,5 +108,18 @@ export class ViewRecipeComponent implements OnInit {
     autoTable(pdf,{head , body,startY:50})
     pdf.output('dataurlnewwindow')
     pdf.save('download.pdf')
+  }
+  saveRecipe(){
+    const {_id ,name , cuisine , image} = this.recipeDetails
+    this.api.saveRecipeApi({id:_id ,name , cuisine , image}).subscribe({
+      next:(res:any)=>{
+        alert('Recipe saved')
+      },
+      error:(err:any)=>{
+        alert(err.error);
+        
+      }
+    })
+
   }
 }
